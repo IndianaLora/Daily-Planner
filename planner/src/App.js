@@ -1,6 +1,6 @@
 import "./App.css";
-import Quotes from "./Quotes";
-
+import Quotes from "./components/Quotes";
+import TodoList from "./components/TodoList";
 function App() {
   const clickHandler = () => {
     return alert("What's up!");
@@ -8,8 +8,10 @@ function App() {
   return (
     <div className="App">
       <h1>Hello world!!</h1>
-      <button onClick={clickHandler}>Click me ☻</button>
+     
       <Quotes />
+      <TodoList />
+      <button onClick={clickHandler}>Click me ☻</button>
     </div>
   );
 }
