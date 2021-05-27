@@ -11,23 +11,31 @@ function TodoList() {
       item: "Predicar",
     },
   ];
-  const [remove, setRemove] = useState(itemsArray);
+  const [list, setList] = useState(itemsArray);
 
-  function removeItems(id) {
-    let now = itemsArray.filter(
-      (itemRemoved) => itemRemoved.id !== id && console.log(id)
-    );
-    setRemove(now);
-  }
+  const removeItem = (id) => {
+    let newList = list.filter((itemList) => itemList.id !== id);
+
+    setList(newList);
+  };
+
   return (
     <div>
       <ol>
-        {itemsArray.map((items) => {
+        {list.map((items) => {
           const { id } = items;
           return (
-            <li key={items.id}>
+            <li key={id}>
               {items.item}{" "}
-              <button onClick={() => removeItems(id)}>Remove</button>
+              <button
+                className="btn btn-danger 
+              "
+                onClick={() => {
+                  removeItem(id);
+                }}
+              >
+                Remove
+              </button>
             </li>
           );
         })}
